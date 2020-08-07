@@ -22,7 +22,7 @@ steps:
   pull: if-not-exists
   settings:
     repo: nishanthkp/node-microservice
-    tags: ["build_${DRONE_BUILD_NUMBER}", "latest"]
+    tags: ["nishanth"]
     when:
       branch: master
       event: commit
@@ -36,8 +36,8 @@ steps:
   pull: if-not-exists
   commands:
   - oc login --token=$OPENSHIFT_TOKEN --server=$OPENSHIFT_SERVER
-  - oc project danske-training
-  - oc new-app nishanthkp/node-microservice:latest --name=node-microservice-nishanth
+  - oc project nishanth-training
+  - oc new-app nishanthkp/node-microservice:nishanth --name=node-microservice-nishanth
   environment:
     OPENSHIFT_TOKEN:
       from_secret: OPENSHIFT_TOKEN
